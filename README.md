@@ -30,7 +30,8 @@ Bibtext
 * nltk 3.2.2+
 * tqdm 4.19.4+
 * h5py 2.7.1+
-* Recommend to use GPU cards (NVIDIA Tesla M40 and NVIDIA TITAIN X for our experiments) for model training efficiency. 
+
+We also recommend to use GPU (NVIDIA Tesla M40 and NVIDIA TITAIN X for our experiments) for model training efficiency. In general, the model training time for [Ubuntu Dialog Corpus](https://arxiv.org/abs/1506.08909) is longer than [MSDialog](https://ciir.cs.umass.edu/downloads/msdialog/) due to the larger training data size.
 
 ## Guide To Use
 
