@@ -1,5 +1,7 @@
 ### Code for computing the QA term PPMI co-occurrence matrix used in DMN-KD model
-Author: [Chen Qu (UMass)](http://chenqu.me/)
+Author: [Chen Qu (UMass)](https://chenqu.me/)
+
+This code is a part of the DMN-KD model. For an overviwe
 
 
 The four folders are input and output folders for local_matrix.py
