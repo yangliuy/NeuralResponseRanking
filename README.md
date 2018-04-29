@@ -31,8 +31,6 @@ Bibtext
 * tqdm 4.19.4+
 * h5py 2.7.1+
 
-The operating system is MacOS 10.12 (16A323) or CentOS Linux 7.4.1708 (Core).
-
 ## Guide To Use
 
 ### DMN
@@ -239,19 +237,19 @@ the iteration number of the weight file you want to use for model testing in the
 ### DMN-PRF
 ---
 #### Data Preparation and Preprocess ####
-For DMN-PRF, you can still use the same configuration file. But you need to replace the data path of
+For DMN-PRF, you can still use the same configuration file with DMN. But you need to replace the data path of
 train/valid/test relatioin files, word dictionary file, corpus file and the pre-train word embedding
 file to the corresponding files under NeuralResponseRanking/data/udc/ModelInput/dmn_prf_model_input_body.
-The differences between DMN-PRF and DMN-KD model are the input files. As presented in Section 3.3 of
+The differences between DMN-PRF and DMN model are the input files. As presented in Section 3.3 of
 our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking), for DMN-PRF model
  you need the following two additional steps before you start model training.
 
  * Step 1: Relevant QA posts retrieval. We adopt different QA text collections for different conversation data
  (e.g. Stack Overflow data for MSDialog, AskUbuntu for UDC). The statistics of external collections used are
  shown in Table 3 of our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking).
- You can download the data dumps for Stack Overflow and AskUbuntu from [archive.org](https://archive.org/download/stackexchange)
- \footnote{\url{https://archive.org/download/stackexchange}}. Then you can index the QA posts in Stack Overflow
-  in most recent two years and all the QA posts in AskUbuntu by [Lucene](http://lucene.apache.org/) . Then you can use
+ You can download the data dumps for Stack Overflow and AskUbuntu from [archive.org](https://archive.org/download/stackexchange).
+  Then you can index the QA posts in Stack Overflow
+   in most recent two years and all the QA posts in AskUbuntu by [Lucene](http://lucene.apache.org/) . Then you can use
   the response candidate of each dialog context/response pair as the query  to retrieve top 10 QA posts with BM25 as
   the source for extracting external knowledge. We provided our java code for this step under NeuralResponseRanking/retrieval/
   for reference.
@@ -313,7 +311,7 @@ command lines. Refer to matchzoo/run_submit_jobs_batch_prf.py on how to do this.
 </p>
 
 #### Data Preparation and Preprocess ####
-Compared with DMN-KD with DMN, the main difference is that the CNN of DMN-KD will
+Comparing DMN-KD with DMN, the main difference is that the CNN of DMN-KD will
 run on an additional input channel denoted as blue matrices in the model architecture of DMN-KD,
 which captures the correspondence matching patterns of dialog context utterance terms and response
 terms in relevant external QA pairs retrieved from the external collection.
@@ -326,16 +324,16 @@ response candidate as the query to retrieve a set of relevant QA pairs from the 
  in dialog context, you can compute the term co-occurrence information as the Positive Pointwise Mutual
  Information(PPMI) of words of the response candidate/ dialog utterance pair in retrieved QA pair set. The
  code and documentation for computing this PPMI matrix is under matchzoo/conqa/qa-comatrix/. All the PPMI
- statistics between all response candidate/ dialog utterance pairs will be store in a "qa_comat_file" specified
+ statistics between response candidate/ dialog utterance pairs will be stored in a "qa_comat_file" specified
  in the configuration file of DMN-KD model.
 
  ```
- "qa_comat_file": "../data/udc/ModelInput/dmn_model_input/qa_comat_local_word.txt",
+ "qa_comat_file": "../data/udc/ModelInput/dmn_model_input/qa_comat_local_word.txt"
  ```
 
-* Step 3: Since the input train/valid/test files of DMN and DMN-KD are the same. You can still use the preprcessed
+* Step 3: Since the input train/valid/test files of DMN and DMN-KD are the same. You can still use the preprocessed
  train/valid/test files of DMN as the input files of DMN-KD. So you can skip the data preprocessing step and word
- embedding pre-training step here. But you need to generate this "qa_comat_file" as the additional inpuy for DMN-KD
+ embedding pre-training step here. But you need to generate this "qa_comat_file" as the additional input for DMN-KD
  model following the instructions under matchzoo/conqa/qa-comatrix. Then you can start model training and testing of
  DMN-KD model.
 
@@ -390,7 +388,7 @@ Bibtext
 ### Acknowledgments
 ---
 The project is developed based on [MatchZoo](https://github.com/faneshion/MatchZoo) toolkit. We also thank the open source
- code of Yu Wu's [SMN model in ACL'17](https://github.com/MarkWuNLP/MultiTurnResponseSelection) .
+ code of Yu Wu's [SMN model in ACL'17](https://github.com/MarkWuNLP/MultiTurnResponseSelection).
 
 ### Questions and Feedback
 ---
@@ -399,7 +397,7 @@ Feel free to post any questions or suggestions on
 and we will reply to your questions there. You can also suggest adding new models/features into our
 project on neural response ranking in information-seeking conversations. We also created a Google discussion
 group [MSDialog Discuss](https://groups.google.com/forum/#!forum/msdialog-discuss) to better
-support Q&A discussions of our users. You can post any questions/suggestions on MSDialog data and our proejct
+support Q&A discussions of our users. You can post any questions/suggestions on MSDialog data and our project
  here. The developers and other experienced users from our community will reply to your questions.
 
 ### Licence
