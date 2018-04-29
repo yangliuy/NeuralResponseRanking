@@ -3,6 +3,16 @@ Author: [Chen Qu (UMass)](https://chenqu.me/)
 
 The ```local_matrix.py``` computes Positive Pointwise [Mutual Information](https://en.wikipedia.org/wiki/Mutual_information) (PPMI) for a response candidate and a dialog utterance, which is a part of the DMN-KD model. For an overviwe of DMN-KD, please refer to the repository readme.
 
+##### Usage
+```
+$ python local_matrix run_id dataset unique qa_pair_num
+parameters:
+- run_id: partition id for input files (please refer to the Note section above)
+- data: msdialog or udc
+- unique: unique or nounique whether to use unique term co-occurrence count when computing PPMI. For example, given sentence A of "a a b c" and sentence B of "p p q m", the co-occurrence count for "a"  and "p" under option "unique"" is 1 while 4 under option "nounique".
+- qa_pair_num: how many QA pairs to consider for each instance.
+```
+
 ##### Data Preparation and input
 ```local_matrix.py``` does not directly use the training/validation/test data of MSDialog and UDC. We preproess the data as follows:
 1. Generate instance ID. A instance refer to a ```(label, context, candidate_reponse)``` triplet in the training/validation/test data. Instance ID is denoted as ```train/valid/test/ + line_number```. For example, the first instance (the first line) in training data is ```train_1```. An example for instance ID file is under ```ids/```. The second column of the id file is not used.
@@ -21,15 +31,8 @@ Each ```instance_id``` corresponds to a result dictionary. This dictionary is es
 	}
 }
 ```
+
 ##### Note
 We use a distributed system for efficient computation. So the input and output files are in small partitions. All input files should be put into respective folders with the same ```run_id``` before running ```local_matrix.py```. For example, for partition #1, the ID file, the QA pairs file, and the terms file all have the same ```run_id``` (file name) of ```1```. The output files are named as the same ```run_id``` as input files. The output files can be merged for later use.
 
-##### Usage
-```
-$ python local_matrix run_id dataset unique qa_pair_num
-parameters:
-- run_id: partition id for input files (please refer to the Note section above)
-- data: msdialog or udc
-- unique: unique or nounique whether to use unique term co-occurrence count when computing PPMI. For example, given sentence A of "a a b c" and sentence B of "p p q m", the co-occurrence count for "a"  and "p" under option "unique"" is 1 while 4 under option "nounique".
-- qa_pair_num: how many QA pairs to consider for each instance.
-```
+
