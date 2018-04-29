@@ -9,7 +9,7 @@ The ```local_matrix.py``` computes Positive Pointwise [Mutual Information](https
 2. Retrieve QA pairs. Use the response candidate as the query to retrieve a set of relevant QA pairs from the external collection (e.g. [AskUbuntu](https://askubuntu.com/) dump for UDC). The question term and answer term co-occurrences can be modeled as PPMI. Please to refer to our paper for a formal explanation. An example for instance QA pairs file is under ```qa_pairs_10/```. Format: ```{'instance_id': {'question': Example question..., 'answer': Example answer}}```.
 3. Extract terms. Extract important context terms and response terms. It can be very computational expensive to compute co-occurrence for every combination of question terms and answer terms. So we only focus on terms that are present in context and response candidates. An example for terms file is under ```terms/```. Format: ```instance_id \t contexts terms \t response terms```.
 
-##### output:
+##### Output:
 Each ```instance_id``` corresponds to a result dictionary. This dictionary is essentially a two-dimensional matrix. The row and column indice are terms and the values in the matrix is the PPMI for these two terms.  This dictionary has three keys. ```r_vocab``` and ```c_vocab``` map the row/column terms to their indices. We adopt this maping to save space. 'rcv_dict' is a dictionary that map the matrix index of ```(rIndex, cIndex)``` to its value. An example for output file is under
 ```inter_unique/```: outputs are in json, format: 
 ```
