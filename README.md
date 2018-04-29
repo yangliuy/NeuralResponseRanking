@@ -240,7 +240,7 @@ the iteration number of the weight file you want to use for model testing in the
 ---
 #### Data Preparation and Preprocess ####
 For DMN-PRF, you can still use the same configuration file with DMN. But you need to replace the data path of
-train/valid/test relatioin files, word dictionary file, corpus file and the pre-train word embedding
+train/valid/test relation files, word dictionary file, corpus file and the pre-train word embedding
 file to the corresponding files under NeuralResponseRanking/data/udc/ModelInput/dmn_prf_model_input_body.
 The differences between DMN-PRF and DMN model are the input files. As presented in Section 3.3 of
 our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking), for DMN-PRF model
@@ -250,22 +250,16 @@ our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-r
  (e.g. Stack Overflow data for MSDialog, AskUbuntu for UDC). The statistics of external collections used are
  shown in Table 3 of our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking).
  You can download the data dumps for Stack Overflow and AskUbuntu from [archive.org](https://archive.org/download/stackexchange).
-  Then you can index the QA posts in Stack Overflow
-   in most recent two years and all the QA posts in AskUbuntu by [Lucene](http://lucene.apache.org/) . Then you can use
-  the response candidate of each dialog context/response pair as the query  to retrieve top 10 QA posts with BM25 as
-  the source for extracting external knowledge. We provided our java code for this step under NeuralResponseRanking/retrieval/
-  for reference.
+  Then you can index the QA posts in Stack Overflow in most recent two years and all the QA posts in AskUbuntu by 
+  [Lucene](http://lucene.apache.org/) . After that you can use the response candidate of each dialog context/response 
+  pair as the query to retrieve top 10 QA posts with BM25 as the source for extracting external knowledge. We open sourced 
+  our java code for this step under NeuralResponseRanking/retrieval/ for reference.
 
  * Step 2: Candidate response expansion. The motivation of Pseudo-Relevance Feedback (PRF) is to extract terms from
   the top-ranked documents in the first retrieval results to help discriminate relevant documents from irrelevant
-   ones. Given the retrieved top 10 QA posts from the previous step, you compute a language model. Then you can extract
+   ones. Given the retrieved top 10 QA posts from the previous step, you can compute a language model. Then you can extract
    the most frequent 10 terms from this language model as expansion terms for response candidate and append them at the
-   end of the response candidate. For the query, we performed several preprocessing steps including tokenization, punctuation
-   removal and stop words removal.  QA posts in both Stack Overflow and AskUbuntu have two fields: "Body" and "Title".
-   We choose to search the "Body" field since we found it more effective in our experiments. You can refer to our java code
-   for this step under NeuralResponseRanking/retrieval/ . After this step, you can get the train/valid/test files for DMN-PRF
-   model. The only difference between the train/valid/test files for DMN and DMN-PRF is that there are 10 additional expanded
-   terms at the end of the candidate response in each line for DMN-PRF.
+   end of the response candidate. For the query, we performed several preprocessing steps including tokenization, punctuation removal and stop words removal.  QA posts in both Stack Overflow and AskUbuntu have two fields: "Body" and "Title". We choose to search the "Body" field since we found it more effective in our experiments. You can refer to our java code for this step under NeuralResponseRanking/retrieval/ . After this step, you can get the train/valid/test files for DMN-PRF model. The only difference between the train/valid/test files for DMN and DMN-PRF is that there are 10 additional expanded terms at the end of the candidate response in each line for DMN-PRF.
 
  * Step 3: Preprocess the data. This is similar to what you did for DMN. You can run the following command to start the data
  preprocessing.
@@ -274,9 +268,7 @@ our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-r
  python preprocess_dmn_prf.py udc body
  ```
 
- * Step 4: Prepare the pre-trained word embedding files. Since you added 10 terms at the end of the each response candiate, the
- pre-trained word embedding file also needs to be changed. You can still use [Word2Vec](https://github.com/dav/word2vec) to train
- the word embeddings with the train/valid/test files of DMN-PRF model. You can run
+ * Step 4: Prepare the pre-trained word embedding files. Since you added 10 terms at the end of the each response candiate, the pre-trained word embedding file also needs to be changed. You can still use [Word2Vec](https://github.com/dav/word2vec) to train the word embeddings with the train/valid/test files of DMN-PRF model. You can run
 
 ```
 cd matchzoo/conqa/
