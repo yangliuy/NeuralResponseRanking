@@ -230,7 +230,7 @@ set "or_cmd" as "True" and pass any hyper-parameters you want. In this case, the
 After the model training finished, you will find the stored model weight files under data/udc/ModelRes/,
 which is the default setting in config/udc/dmn_cnn.config. To start model testing, you can run
 ```
-python main_conversation_qa.py --phase test --model_file config/udc/dmn_cnn.config --or_cmd False
+python main_conversation_qa.py --phase predict --model_file config/udc/dmn_cnn.config --or_cmd False
 ```
 
 In the default setting, the program will dump a model weight file in each 10 iterations. You can specify
@@ -301,7 +301,7 @@ with passing hyper-parameters you want.
 After the model training finished, you will find the stored model weight files under data/udc/ModelRes/.
  To start model testing, you can run
 ```
-python main_conversation_qa.py --phase test --model_file config/udc/dmn_cnn.config --or_cmd True
+python main_conversation_qa.py --phase predict --model_file config/udc/dmn_cnn.config --or_cmd True
 ```
 You also need to pass the data path of relation files, word embedding files, corpus files, vocab_size of DMN-PRF through
 command lines. Refer to matchzoo/run_submit_jobs_batch_prf.py on how to do this.
@@ -356,7 +356,7 @@ In addition, you can pass additional hyper-parameters of DMN-KD through command 
 After the model training finished, you will find the stored model weight files under data/udc/ModelRes/.
 To start model testing, you can run
 ```
-python main_conversation_qa.py --phase test --model_file config/udc/dmn_cnn_kd_word.config --or_cmd True
+python main_conversation_qa.py --phase predict --model_file config/udc/dmn_cnn_kd_word.config --or_cmd True
 ```
 In addition, you can pass additional hyper-parameters of DMN-KD through command lines.
 
