@@ -30,6 +30,7 @@ Bibtext
 * nltk 3.2.2+
 * tqdm 4.19.4+
 * h5py 2.7.1+
+* Recommend to use GPU cards (NVIDIA Tesla M40 and NVIDIA TITAIN X for our experiments) for model training efficiency. 
 
 ## Guide To Use
 
