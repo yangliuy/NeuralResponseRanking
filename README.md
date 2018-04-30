@@ -31,7 +31,7 @@ Bibtext
 * tqdm 4.19.4+
 * h5py 2.7.1+
 
-We also recommend to use GPU (NVIDIA Tesla M40 and NVIDIA TITAIN X for our experiments) for model training efficiency. In general, the model training time for [Ubuntu Dialog Corpus](https://arxiv.org/abs/1506.08909) is longer than [MSDialog](https://ciir.cs.umass.edu/downloads/msdialog/) due to the larger training data size.
+We also recommend to use GPU (NVIDIA Tesla M40 and NVIDIA TITAIN X for our experiments) for model training efficiency. In general, the model training time for [Ubuntu Dialog Corpus](https://arxiv.org/abs/1506.08909) is longer than that of [MSDialog](https://ciir.cs.umass.edu/downloads/msdialog/) due to the larger training data size.
 
 ## Guide To Use
 
