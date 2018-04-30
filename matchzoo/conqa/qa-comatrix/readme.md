@@ -1,4 +1,4 @@
-### Code for computing the QA term PPMI co-occurrence matrix used in DMN-KD model
+### Code for Computing the QA Term PPMI Co-occurrence Matrix Used in DMN-KD Model
 Author: [Chen Qu (UMass)](https://chenqu.me/)
 
 The ```local_matrix.py``` computes Positive Pointwise [Mutual Information](https://en.wikipedia.org/wiki/Mutual_information) (PPMI) for a response candidate and a dialog utterance, which is a part of the DMN-KD model. For an overview of DMN-KD, please refer to the repository readme.
