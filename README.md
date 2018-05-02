@@ -1,7 +1,7 @@
 # NeuralResponseRanking
 
 This repository contains the implementation of DMN/DMN-PRF/DMN-KD models proposed in SIGIR'18 paper
-[Response Ranking with Deep Matching Networks and External Knowledge in Information-seeking Conversation Systems](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking).
+[Response Ranking with Deep Matching Networks and External Knowledge in Information-seeking Conversation Systems](https://arxiv.org/abs/1805.00188).
 The implementation of DMN/DMN-KD/DMN-PRF models is based on [MatchZoo](https://github.com/faneshion/MatchZoo).
 We will maintain the SIGIR'18 experiments related code in this code repository and merge the implementation of
 DMN/DMN-PRF/DMN-KD models into the master branch of [MatchZoo](https://github.com/faneshion/MatchZoo) later.
@@ -52,7 +52,7 @@ in your lab or company.
 * Step 1: Download the data. you can download the Ubuntu Dialog Corpus(UDC) data from
 [this dropbox link](https://www.dropbox.com/s/2fdn26rj6h9bpvl/ubuntu%20data.zip?dl=0) used
 in several [previous papers](https://arxiv.org/abs/1612.01627) and our
-[SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking).
+[SIGIR'18 paper](https://arxiv.org/abs/1805.00188).
 The data contain 1M train instances, 50K validation instances and 50K testing instances you
 need for the response ranking experiments. The data format is as follows:
 
@@ -104,7 +104,7 @@ If you pass ms_v2 into preprocess_dmn.py, it can also do preprocessing steps for
  data. You need to download the data in advance.
 
 * Step 3: Prepare the pre-trained word embedding files. As presented in our
-[SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking), we
+[SIGIR'18 paper](https://arxiv.org/abs/1805.00188), we
 used the [Word2Vec](https://github.com/dav/word2vec) to pre-train the word embeddings and then update
 them during model training process. We found the models achieved better performances with pre-trained
 word embeddings by [Word2Vec](https://github.com/dav/word2vec) comparing with using
@@ -243,12 +243,12 @@ For DMN-PRF, you can still use the same configuration file with DMN. But you nee
 train/valid/test relation files, word dictionary file, corpus file and the pre-train word embedding
 file to the corresponding files under NeuralResponseRanking/data/udc/ModelInput/dmn_prf_model_input_body.
 The differences between DMN-PRF and DMN model are the input files. As presented in Section 3.3 of
-our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking), for DMN-PRF model
+our [SIGIR'18 paper](https://arxiv.org/abs/1805.00188), for DMN-PRF model
  you need the following two additional steps before you start model training.
 
  * Step 1: Relevant QA posts retrieval. We adopt different QA text collections for different conversation data
  (e.g. Stack Overflow data for MSDialog, AskUbuntu for UDC). The statistics of external collections used are
- shown in Table 3 of our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking).
+ shown in Table 3 of our [SIGIR'18 paper](https://arxiv.org/abs/1805.00188).
  You can download the data dumps for Stack Overflow and AskUbuntu from [archive.org](https://archive.org/download/stackexchange).
   Then you can index the QA posts in Stack Overflow in most recent two years and all the QA posts in AskUbuntu by 
   [Lucene](http://lucene.apache.org/) . After that you can use the response candidate of each dialog context/response 
@@ -357,7 +357,7 @@ In addition, you can pass additional hyper-parameters of DMN-KD through command 
 Our model implementation also supports model ablation analysis of DMN-KD and DMN-PRF models with different
 interaction types (dot, cosine or bilinear interaction matrix) and input CNN channels (M1 on word embedding similarity,
 M2 on BiGRU representation similarity or M3 on QA correspondence matching matrix), as presented in Table 6 of
-our [SIGIR'18 paper](https://yangliuy.github.io/publication/2018-07-08-sigir18-response-ranking). You can
+our [SIGIR'18 paper](https://arxiv.org/abs/1805.00188). You can
 refer to the implementation related to model ablation analysis in matchzoo/models/dmn_cnn_ablation.py,
 matchzoo/models/dmn_cnn_kd_ablation.py and matchzoo/run_submit_jobs_model_ablation.py for the details.
 
