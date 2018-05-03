@@ -44,7 +44,7 @@ We also recommend to use GPU (NVIDIA TITAIN X for our experiments) for model tra
 
 #### Data Preparation and Preprocess ####
 
-We take the [Ubuntu Dialog Corpus](https://arxiv.org/abs/1506.08909) as the example data to show how the prepare and preprcess the data
+We take the [Ubuntu Dialog Corpus](https://arxiv.org/abs/1506.08909) as the example data to show how to prepare and preprcess the data
 to run the DMN model for experiments on response ranking in information-seeking covnersations. You can easily adapt these instructions
 to other data sets like [MSDialog](https://ciir.cs.umass.edu/downloads/msdialog/) or other information-seeking conversation datasets
 in your lab or company.
