@@ -53,7 +53,7 @@ in your lab or company.
 [this dropbox link](https://www.dropbox.com/s/2fdn26rj6h9bpvl/ubuntu%20data.zip?dl=0) used
 in several [previous papers](https://arxiv.org/abs/1612.01627) and our
 [SIGIR'18 paper](https://arxiv.org/abs/1805.00188).
-The data contain 1M train instances, 50K validation instances and 50K testing instances you
+The data contain 1M train instances, 500K validation instances and 500K testing instances you
 need for the response ranking experiments. The data format is as follows:
 
 ```
