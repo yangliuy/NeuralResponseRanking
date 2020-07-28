@@ -3,8 +3,6 @@
 This repository contains the implementation of DMN/DMN-PRF/DMN-KD models proposed in SIGIR'18 paper
 [Response Ranking with Deep Matching Networks and External Knowledge in Information-seeking Conversation Systems](https://arxiv.org/abs/1805.00188).
 The implementation of DMN/DMN-KD/DMN-PRF models is based on [MatchZoo](https://github.com/faneshion/MatchZoo).
-We will maintain the SIGIR'18 experiments related code in this code repository and merge the implementation of
-DMN/DMN-PRF/DMN-KD models into the master branch of [MatchZoo](https://github.com/faneshion/MatchZoo) later.
 
 If you use this code for your paper, please cite it as:
 
